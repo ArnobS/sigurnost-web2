@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Screen</title>
+</head>
+<body>
+    <% if (user){%>
+        <h1>Welcome <%= user.username %></h1>
+    <%} else {%>
+        <h1>Welcome Guest!</h1>
+    <%}%>
+    <br>
+    <p> Unutar tekstualnog okvira unesite zlonamjerni skriptni kod poput: "&lt;script&gt; alert(document.cookie;) &lt;/script&gt;"</p><br>
+    <form action="/home" method="get">
+        <label for="test">Upisi:</label>
+        <input type="text" id="tekst" name="tekst">
+        <input type="submit" value="Submit"><br>
+        <input type="checkbox" id="safety" name="safety" value="on">
+        <label for="safety">Safety ON</label>
+    </form>
+    <br><br>
+    <form action="/logout" method="get">
+        <button type="submit">Logout</button>
+    </form>
+    <% if (tekst && safety){%>
+        <p><%= tekst %></p>
+    <%} else if (tekst && !safety) {%>
+        <p><%- tekst %></p>
+    <%}%>
+</body>
+</html>
+
