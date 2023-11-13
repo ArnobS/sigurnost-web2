@@ -1,7 +1,6 @@
 const express = require('express');
 const path = require('path');
 const session = require('express-session');
-const { Pool } = require('pg');
 require("dotenv").config();
 
 const app = express();
